@@ -1,0 +1,24 @@
+---
+abstract: 'DBIx Class Result ExternalAttribute'
+author:
+  - 'Nicolas Oudard'
+build_requires:
+  Test::More: 0
+configure_requires:
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3603'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: DBIx-Class-Result-ExternalAttribute
+provides:
+  DBIx::Class::Result::ExternalAttribute:
+    file: lib/DBIx/Class/Result/ExternalAttribute.pm
+    version: 0.01
+requires:
+  DBIx::Class::Result::ColumnData: 0.06
+  Test::More: 0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.01

@@ -1,0 +1,7 @@
+do{ my $x = {
+       'Build' => 1,
+       'DBIx-Class-Result-ExternalAttribute-*' => 1,
+       '_build' => 1,
+       'DBIx-Class-Result-ExternalAttribute-0.01' => 1
+     };
+$x; }
