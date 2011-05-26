@@ -30,8 +30,8 @@ my $cdwa = {
   'year_old' => $mj->artist_attribute->year_old,
 };
 
-is_deeply $mj->columns_data, $cd, "columns_data return column data of artist";
-is_deeply $mj->columns_data_with_attribute, $cdwa, "columns_data_with_attribute return column data of artist and artist attribute";
+is_deeply $mj->get_column_data, $cd, "columns_data return column data of artist";
+is_deeply $mj->get_column_data_with_attribute, $cdwa, "columns_data_with_attribute return column data of artist and artist attribute";
 
 $mj->update({year_old => "57", name => "Michael Jackson the king of the pop"});
 
