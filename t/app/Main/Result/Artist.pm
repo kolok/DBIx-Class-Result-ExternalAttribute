@@ -18,6 +18,6 @@ __PACKAGE__->init_external_attribute(
       't::app::Main::Result::ArtistAttribute',
     'artist_id'
 );
-__PACKAGE__->register_relationships_columns_data();
+__PACKAGE__->register_relationships_column_data();
 
 1;
