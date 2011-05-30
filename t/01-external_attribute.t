@@ -9,7 +9,7 @@ use t::lib::Utils;
 use t::app::Main;
 use Data::Dumper 'Dumper';
 
-plan tests => 7;
+plan tests => 8;
 
 my $schema = t::app::Main->connect('dbi:SQLite:t/example.db');
 $schema->deploy({ add_drop_table => 1 });
@@ -30,8 +30,11 @@ my $cdwa = {
   'year_old' => $mj->artist_attribute->year_old,
 };
 
-is_deeply $mj->get_column_data, $cd, "columns_data return column data of artist";
-is_deeply $mj->get_column_data_with_attribute, $cdwa, "columns_data_with_attribute return column data of artist and artist attribute";
+is_deeply $mj->get_column_data, $cd, "get_column_data return column data of artist";
+is_deeply $mj->get_column_data_with_attribute, $cdwa, "get_column_data_with_attribute return column data of artist and artist attribute";
+
+# test deprecated function continue to work
+is_deeply $mj->get_column_data_with_attribute, $mj->columns_data_with_attribute, "columns_data_with_attribute continue to work";
 
 $mj->update({year_old => "57", name => "Michael Jackson the king of the pop"});
 

@@ -15,10 +15,12 @@ name: DBIx-Class-Result-ExternalAttribute
 provides:
   DBIx::Class::Result::ExternalAttribute:
     file: lib/DBIx/Class/Result/ExternalAttribute.pm
-    version: 0.01
+    version: 0.02
 requires:
-  DBIx::Class::Result::ColumnData: 0.06
+  Carp: 1.17
+  DBIx::Class::Result::ColumnData: 0.09
+  SQL::Translator: 0.11007
   Test::More: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.01
+version: 0.02
