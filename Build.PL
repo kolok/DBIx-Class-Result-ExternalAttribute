@@ -7,8 +7,10 @@ my $build = Module::Build->new (
         dist_version_from => 'lib/DBIx/Class/Result/ExternalAttribute.pm',
         dist_abstract => 'DBIx Class Result ExternalAttribute',
         requires => {
+            'Carp' => 1.17,
             'Test::More' => 0,
-            'DBIx::Class::Result::ColumnData' => 0.06,
+            'DBIx::Class::Result::ColumnData' => 0.09,
+            'SQL::Translator' => 0.11007,
         },
         build_requires => {
             'Test::More' => 0,
