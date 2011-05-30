@@ -1,5 +1,8 @@
 Revision history for DBIx-Class-Result-ExternalAttribute
 
+0.03    2011-05-30, Nicolas Oudard
+        Add comment for pod coverage tests
+
 0.02    2011-05-30, Nicolas Oudard
         Changes name of function from columns_data_with_attribute to
           get_column_data_with_attribute
