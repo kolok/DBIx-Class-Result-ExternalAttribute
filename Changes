@@ -1,5 +1,10 @@
 Revision history for DBIx-Class-Result-ExternalAttribute
 
-0.01    Date/time
-        First version, released on an unsuspecting world.
+0.02    2011-05-30, Nicolas Oudard
+        Changes name of function from columns_data_with_attribute to
+          get_column_data_with_attribute
+        Keep deprecated function
+
+0.01    2011-03-15
+        First version.
 
