@@ -129,9 +129,9 @@ sub init_external_attribute {
     $klass->rh_klass_attribute_column( $rel, \@columns );
 }
 
-=head2 get_column_data_with_attribute
+=head2 columns_data_with_attribute
 
-extract column_data with attribute column
+columns_data_with_external_attribute is deprecated, please use get_column_data_with_attribute
 
 =cut
 
@@ -140,6 +140,12 @@ sub columns_data_with_attribute {
     my $self = shift;
     $self->get_column_data_with_attribute(@_);
 }
+
+=head2 get_column_data_with_attribute
+
+extract column_data with attribute column
+
+=cut
 
 sub get_column_data_with_attribute {
     my $self      = shift;

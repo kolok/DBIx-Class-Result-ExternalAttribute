@@ -7,7 +7,7 @@ build_requires:
 configure_requires:
   Module::Build: 0.36
 dynamic_config: 0
-generated_by: 'Module::Build version 0.3603'
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.110580'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -16,7 +16,7 @@ name: DBIx-Class-Result-ExternalAttribute
 provides:
   DBIx::Class::Result::ExternalAttribute:
     file: lib/DBIx/Class/Result/ExternalAttribute.pm
-    version: 0.01
+    version: 0.02
 requires:
   Carp: 1.17
   DBIx::Class::Result::ColumnData: 0.09
@@ -24,4 +24,4 @@ requires:
   Test::More: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.01
+version: 0.02
