@@ -10,12 +10,12 @@ DBIx::Class::Result::ExternalAttribute - The great new DBIx::Class::Result::Exte
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =cut
 
 # version
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 # use base
 use base qw/ DBIx::Class Class::Accessor::Grouped /;
@@ -93,11 +93,13 @@ accessor to init_external_attrinute HASH configuration
 =cut
 
 sub rh_klass_attribute_column {
-    my ( $klass, $rel, $klass_attribute_column ) = @_;
+    my ( $klass, $rel, $klass_attribute_column, $external_key ) = @_;
     croak "this function must be call with a class" unless defined $klass;
-    if ( @_ == 3 ) {
-        return $rh_klass_attribute_column->{$klass}->{$rel} =
+    if ( @_ == 4 ) {
+        return $rh_klass_attribute_column->{$klass}->{$rel}->{'columns'} =
           $klass_attribute_column;
+        return $rh_klass_attribute_column->{$klass}->{$rel}->{'external_key'} =
+          $external_key;
     }
     if ( @_ == 2 ) {
         return $rh_klass_attribute_column->{$klass}->{$rel};
@@ -126,7 +128,7 @@ sub init_external_attribute {
     foreach my $col ( $klass_attribute->columns ) {
         push( @columns, $col ) unless $col eq $external_key;
     }
-    $klass->rh_klass_attribute_column( $rel, \@columns );
+    $klass->rh_klass_attribute_column( $rel, \@columns, $external_key );
 }
 
 =head2 columns_data_with_attribute
@@ -155,7 +157,7 @@ sub get_column_data_with_attribute {
         my $rel_object = $self->$rel_attr;
         next unless defined $rel_object;
         my $rh_result_attribute = $self->$rel_attr->get_column_data();
-        foreach my $col ( @{ $klass->rh_klass_attribute_column($rel_attr) } ) {
+        foreach my $col ( @{ $klass->rh_klass_attribute_column($rel_attr)->{'columns'} } ) {
             $rh_result->{$col} = $rh_result_attribute->{$col};
         }
     }
@@ -172,7 +174,7 @@ prepare params for creation with attributes
 sub prepare_params_with_attribute {
     my ( $klass, $rh_fields ) = @_;
     foreach my $rel ( keys %{ $klass->rh_klass_attribute_column } ) {
-        foreach my $col ( @{ $klass->rh_klass_attribute_column($rel) } ) {
+        foreach my $col ( @{ $klass->rh_klass_attribute_column($rel)->{'columns'} } ) {
             if ( defined $rh_fields->{$col} ) {
                 $rh_fields->{$rel}->{$col} = $rh_fields->{$col};
                 delete $rh_fields->{$col};
@@ -192,7 +194,7 @@ sub update {
     my ( $self, $rh_fields ) = @_;
     my $klass = ref $self;
     foreach my $rel ( keys %{ $klass->rh_klass_attribute_column } ) {
-        foreach my $col ( @{ $klass->rh_klass_attribute_column($rel) } ) {
+        foreach my $col ( @{ $klass->rh_klass_attribute_column($rel)->{'columns'} } ) {
             if ( defined $rh_fields->{$col} ) {
                 $self->$rel->$col( $rh_fields->{$col} );
                 delete $rh_fields->{$col};

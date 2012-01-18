@@ -16,7 +16,7 @@ name: DBIx-Class-Result-ExternalAttribute
 provides:
   DBIx::Class::Result::ExternalAttribute:
     file: lib/DBIx/Class/Result/ExternalAttribute.pm
-    version: 0.04
+    version: 0.05
 requires:
   Carp: 1.17
   DBIx::Class::Result::ColumnData: 0.09
@@ -24,4 +24,4 @@ requires:
   Test::More: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.04
+version: 0.05
