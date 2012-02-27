@@ -1,5 +1,8 @@
 Revision history for DBIx-Class-Result-ExternalAttribute
 
+0.05    2012-02-27, Nicolas Oudard
+        store also the external key which link the object with its external object
+
 0.03    2011-05-30, Nicolas Oudard
         Add comment for pod coverage tests
 

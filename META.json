@@ -4,7 +4,7 @@
       "Nicolas Oudard"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.110580",
+   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.120351",
    "license" : [
       "perl_5"
    ],
@@ -16,7 +16,7 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Test::More" : 0
+            "Test::More" : "0"
          }
       },
       "configure" : {
@@ -29,7 +29,7 @@
             "Carp" : "1.17",
             "DBIx::Class::Result::ColumnData" : "0.09",
             "SQL::Translator" : "0.11007",
-            "Test::More" : 0
+            "Test::More" : "0"
          }
       }
    },
